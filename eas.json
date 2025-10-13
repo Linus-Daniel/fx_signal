@@ -2,20 +2,28 @@
   "build": {
     "preview": {
       "android": {
-        "buildType": "apk"
+        "gradleCommand": ":app:assembleRelease",
+        "buildType": "apk",
+        "autoIncrement": true
+      }
+    },
+    "production": {
+      "android": {
+        "gradleCommand": ":app:bundleRelease",
+        "buildType": "apk",
+        "autoIncrement": true
       }
     },
     "preview2": {
       "android": {
-        "gradleCommand": ":app:assembleRelease"
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_NO_KOTLIN_UPDATE": "false"
       }
-    },
-    "preview3": {
-      "developmentClient": true
-    },
-    "preview4": {
-      "distribution": "internal"
-    },
-    "production": {}
+    }
+  },
+  "cli": {
+    "appVersionSource": "remote"
   }
 }
