@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Modal, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useTheme } from "../contexts/ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 import { Text, Button, Card } from "./ui";
-import { useNotifications } from "../../hooks/useNotifications";
+import { useNotifications } from "../hooks/useNotification";
 
 interface NotificationPermissionModalProps {
   visible: boolean;
@@ -96,23 +96,26 @@ const NotificationPermissionModal: React.FC<
 
           <View style={styles.buttonContainer}>
             <Button
-              title="Enable Notifications"
               onPress={handleRequestPermission}
               loading={requesting}
-            />
+            >
+              Enable Notifications
+            </Button>
 
             <Button
-              title="Open Settings"
               variant="outline"
               onPress={openSettings}
-            />
+            >
+              Open Settings
+            </Button>
 
             <Button
-              title="Maybe Later"
               variant="ghost"
               onPress={onClose}
               style={styles.skipButton}
-            />
+            >
+              Maybe Later
+            </Button>
           </View>
         </Card>
       </View>

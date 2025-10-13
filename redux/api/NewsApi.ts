@@ -1,5 +1,5 @@
 // File: src/store/api/newsAPI.ts (Updated to use external service)
-import { newsAggregatorService } from "../../services/externalNewsService";
+import { newsAggregatorService } from "../../services/newsAggregator";
 
 interface GetNewsParams {
   page?: number;

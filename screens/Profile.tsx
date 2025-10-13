@@ -18,6 +18,8 @@ import ProfileHeader from "../components/ProfileHeader";
 const ProfileScreen = () => {
   const { theme, themeMode, setThemeMode } = useThemeContext();
 
+  
+
   // Mock user data - in production, this would come from Redux/API
   const mockUser = {
     id: "1",
@@ -25,7 +27,7 @@ const ProfileScreen = () => {
     email: "john.doe@example.com",
     avatar: null,
     memberSince: new Date(Date.now() - 365 * 24 * 60 * 60 * 1000).toISOString(),
-    subscriptionTier: "premium" as const,
+    subscriptionTier: "premium",
     totalSignalsCopied: 147,
     winRate: 78.5,
     totalProfit: 12450,
@@ -204,7 +206,7 @@ const ProfileScreen = () => {
         <ProfileHeader user={mockUser} onEditPress={handleEditProfile} />
 
         {/* Upgrade Card (only for non-professional users) */}
-        {mockUser.subscriptionTier !== "professional" && (
+        {mockUser.subscriptionTier !== "premium" && (
           <Card style={styles.upgradeCard}>
             <Text variant="h4" weight="bold" style={styles.upgradeTitle}>
               Unlock Professional Features

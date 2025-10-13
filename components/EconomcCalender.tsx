@@ -211,10 +211,11 @@ const EconomicCalendar: React.FC<EconomicCalendarProps> = ({
                       </View>
                     </View>
                     <Badge
-                      label={event.impact.toUpperCase()}
                       variant={getImpactVariant(event.impact)}
                       size="sm"
-                    />
+                    >
+                      {event.impact.toUpperCase()}
+                    </Badge>
                   </View>
 
                   {(event.actual || event.forecast || event.previous) && (

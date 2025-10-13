@@ -430,9 +430,12 @@ const NewsScreen: React.FC = () => {
 
         <View style={styles.tabContainer}>
           <SegmentedControl
-            options={["News", "Calendar"]}
-            selectedIndex={selectedTab}
-            onSelectionChange={setSelectedTab}
+            options={[
+              { label: "News", value: "0" },
+              { label: "Calendar", value: "1" },
+            ]}
+            selectedValue={selectedTab.toString()}
+            onValueChange={(value) => setSelectedTab(Number(value))}
           />
         </View>
 
@@ -494,7 +497,6 @@ const NewsScreen: React.FC = () => {
               <EmptyState
                 icon="newspaper-outline"
                 title="No News Found"
-                description="Try adjusting your search or filters"
               />
             }
             showsVerticalScrollIndicator={false}

@@ -207,11 +207,9 @@ const ExternalNewsCard: React.FC<ExternalNewsCardProps> = ({
             <View style={styles.leftHeader}>
               <Text style={styles.source}>{article.source}</Text>
             </View>
-            <Badge
-              label={`${article.impact.toUpperCase()} IMPACT`}
-              variant={getImpactVariant()}
-              size="sm"
-            />
+            <Badge variant={getImpactVariant()} size="sm">
+              {`${article.impact.toUpperCase()} IMPACT`}
+            </Badge>
           </View>
 
           <View style={styles.metaInfo}>
