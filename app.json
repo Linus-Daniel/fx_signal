@@ -43,6 +43,7 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
+      "react-native-reanimated", // ADD THIS PLUGIN FIRST
       [
         "expo-build-properties",
         {
@@ -50,6 +51,7 @@
             "compileSdkVersion": 34,
             "targetSdkVersion": 34,
             "buildToolsVersion": "34.0.0",
+            "kotlinVersion": "2.0.21", // ADD KOTLIN VERSION
             "enableProguardInReleaseBuilds": true,
             "extraMavenRepos": [
               "../../node_modules/@notifee/react-native/android/libs"
