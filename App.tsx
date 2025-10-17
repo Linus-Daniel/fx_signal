@@ -13,6 +13,7 @@ import AppNavigator from "./navigation/AppNavigation";
 import ConnectionStatus from "./components/ConnectionStatus";
 import { loadStoredAuth } from "./redux/slices/authSlice";
 import { NavigationContainer } from "@react-navigation/native";
+import "./global.css";
 
 export default function App() {
   const systemColorScheme = useColorScheme();

@@ -1,29 +1,81 @@
 {
   "build": {
-    "preview": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
       "android": {
-        "gradleCommand": ":app:assembleRelease",
         "buildType": "apk",
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "ios": {
+        "buildConfiguration": "Debug"
+      },
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "staging": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
         "autoIncrement": true
+      },
+      "ios": {
+        "buildConfiguration": "Release"
+      },
+      "env": {
+        "NODE_ENV": "staging"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "autoIncrement": true
+      },
+      "ios": {
+        "buildConfiguration": "Release"
+      },
+      "env": {
+        "NODE_ENV": "production"
       }
     },
     "production": {
+      "distribution": "store",
       "android": {
+        "buildType": "app-bundle",
         "gradleCommand": ":app:bundleRelease",
-        "buildType": "apk",
         "autoIncrement": true
-      }
-    },
-    "preview2": {
-      "android": {
-        "buildType": "apk"
+      },
+      "ios": {
+        "buildConfiguration": "Release"
       },
       "env": {
-        "EXPO_NO_KOTLIN_UPDATE": "false"
+        "NODE_ENV": "production"
+      }
+    },
+    "production-apk": {
+      "extends": "production",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "autoIncrement": true
       }
     }
   },
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./android-service-account.json",
+        "track": "internal"
+      },
+      "ios": {}
+    }
+  },
   "cli": {
-    "appVersionSource": "remote"
+    "appVersionSource": "remote",
+    "requireCommit": false
   }
 }

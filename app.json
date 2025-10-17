@@ -25,25 +25,30 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.yourcompany.forexsignals",
+      "package": "com.forexsignals.pro",
       "versionCode": 1,
       "permissions": [
         "INTERNET",
         "RECEIVE_WAKE_LOCK",
         "VIBRATE",
+        "ACCESS_NETWORK_STATE",
+        "SYSTEM_ALERT_WINDOW",
         "android.permission.WAKE_LOCK",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
         "com.google.android.c2dm.permission.RECEIVE"
       ],
       "useNextNotificationsApi": true,
       "compileSdkVersion": 34,
       "targetSdkVersion": 34,
-      "buildToolsVersion": "34.0.0"
+      "buildToolsVersion": "34.0.0",
+      "allowBackup": false,
+      "networkSecurityConfig": "./android/app/src/main/res/xml/network_security_config.xml"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "react-native-reanimated", // ADD THIS PLUGIN FIRST
+      "expo-dev-client",
       [
         "expo-build-properties",
         {
@@ -51,15 +56,11 @@
             "compileSdkVersion": 34,
             "targetSdkVersion": 34,
             "buildToolsVersion": "34.0.0",
-            "kotlinVersion": "2.0.21", // ADD KOTLIN VERSION
-            "enableProguardInReleaseBuilds": true,
-            "extraMavenRepos": [
-              "../../node_modules/@notifee/react-native/android/libs"
-            ]
+            "kotlinVersion": "1.9.10",
+            "enableProguardInReleaseBuilds": true
           },
           "ios": {
-            "deploymentTarget": "15.1",
-            "useFrameworks": "static"
+            "deploymentTarget": "15.1"
           }
         }
       ],
